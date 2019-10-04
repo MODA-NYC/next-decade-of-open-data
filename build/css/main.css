@@ -85,8 +85,7 @@ section {
     background: #F8F9F1; }
     @media (prefers-color-scheme: dark) {
       section.section--framework {
-        background: #282c34;
-        background: #21252b;
+        background: #7b7c90;
         color: #F8F9F1; } }
   section.section--text {
     background: white; }
@@ -232,3 +231,34 @@ details p {
   font-size: 15px;
   color: #595959;
   opacity: .85; }
+
+.framework {
+  width: 50%;
+  max-height: 90vh;
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 50%;
+  z-index: 0; }
+  @media (max-width: 600px) {
+    .framework {
+      display: none; } }
+
+.framework__pillar {
+  transition: .3s all ease;
+  opacity: .5; }
+
+.pillar--active {
+  opacity: 1; }
+
+.framework__pillar__person {
+  transform: translateY(30%);
+  opacity: 0;
+  transition: .4s all ease; }
+  .framework__pillar__person#pillar3__person {
+    transform: translateX(30%); }
+    .pillar--active .framework__pillar__person#pillar3__person {
+      transform: translateY(0); }
+  .pillar--active .framework__pillar__person {
+    transform: translateY(0);
+    opacity: 1; }

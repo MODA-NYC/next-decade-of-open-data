@@ -55,7 +55,7 @@ $darkBlue: #253245;
 $offWhite: #F8F9F1;
 $grey: #595959;
 $darkBG1: #282c34;
-$darkBG2: #21252b;
+$darkBG2: #7b7c90;
 $lightYellow: #FEFFE5;
 $pillar1: #63CCEC;
 $pillar2: #BC96B3;
@@ -157,8 +157,7 @@ section {
     background: $offWhite;
 
     @include darkMode {
-      background: $darkBG1;
-      background: #21252b;
+      background: $darkBG2;
       color: $offWhite;
     }
   }
@@ -350,4 +349,46 @@ details p {
   font-size: 15px;
   color: $grey;
   opacity: .85;
+}
+
+.framework {
+  width: 50%;
+  max-height: 90vh;
+  position: sticky;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 50%;
+  z-index: 0;
+
+	@include mobile {
+		display: none;
+	}
+}
+
+.framework__pillar {
+	transition: .3s all ease;
+	opacity: .5;
+}
+
+.pillar--active {
+	opacity: 1;
+}
+
+.framework__pillar__person {
+	transform: translateY(30%);
+	opacity: 0;
+	transition: .4s all ease;
+
+	&#pillar3__person {
+		transform: translateX(30%);
+
+		.pillar--active & {
+			transform: translateY(0);
+		}
+	}
+
+	.pillar--active & {
+		transform: translateY(0);
+		opacity: 1;
+	}
 }

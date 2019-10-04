@@ -34,18 +34,17 @@ function watch() {
   gulp.watch('build/js/*.js').on('change', browserSync.reload);
 }
 
-// function uglify() {
-//   return gulp.src('build/js/*.js')
-//     .pipe(uglify())
-//     .pipe(rename({ extname: '.min.js'}))
-//     .pipe(dest('dist/js/'))
-//     .pipe(browserSync.stream());
-// }
+function scripts() {
+  return gulp.src('build/js/*.js')
+    .pipe(uglify())
+    .pipe(rename({ extname: '.min.js'}))
+    .pipe(dest('dist/js/'))
+    .pipe(browserSync.stream());
+}
 
 gulp.task('default', watch);
 
 
 exports.style = style;
 exports.watch = watch;
-// exports.cwebp = cwebp;
-// exports.uglify = uglify;
+exports.uglify = uglify;
