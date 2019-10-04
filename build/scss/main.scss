@@ -174,7 +174,12 @@ section {
 
 footer {
   background: $darkBlue;
-  min-height: 100px;
+  padding-top: 70px;
+	padding-bottom: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
 }
 
 h1 {
@@ -228,6 +233,36 @@ p {
 strong {
   font-weight: 700;
 }
+
+.button {
+	font-size: 22px;
+	font-weight: 700;
+	background: $lightYellow;
+	padding: 20px;
+	text-align: center;
+	border-radius: 8px;
+	display: inline-block;
+	text-decoration: none;
+	transition: .2s all ease;
+	color: $grey;
+	margin-bottom: 20px;
+
+	&:hover {
+		background: $blue;
+		color: $lightYellow;
+	}
+}
+
+.logo {
+	width: 300px;
+	margin: 0 0 50px;
+
+	footer & {
+		width: 250px;
+		margin: 20px 0 0;
+	}
+}
+
 
 .colWrap {
   display: flex;
@@ -354,7 +389,6 @@ details p {
 .framework {
   width: 50%;
   max-height: 90vh;
-  // margin-left: 50%;
 	transition: .3s all ease;
 	z-index: -1;
 	position: fixed;
@@ -365,18 +399,11 @@ details p {
 	@include mobile {
 		display: none;
 	}
-
-	// &.framework--sticking {
-	// 	position: fixed;
-	// 	top: 50%;
-	// 	transform: translateY(-50%);
-	// 	// opacity: 1;
-	// }
 }
 
 .framework__pillar {
 	transition: .3s all ease;
-	// opacity: .5;
+	opacity: .8;
 }
 
 .pillar--active {
@@ -388,16 +415,17 @@ details p {
 	opacity: 0;
 	transition: .4s all ease;
 
-	&#pillar3__person {
-		transform: translateX(30%);
-
-		.pillar--active & {
-			transform: translateY(0);
-		}
-	}
-
 	.pillar--active & {
 		transform: translateY(0);
 		opacity: 1;
 	}
+}
+
+
+#pillar3__person {
+	transform: translateX(30%);
+}
+
+.pillar--active #pillar3__person {
+	transform: translateX(0%);
 }
