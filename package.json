@@ -1,0 +1,25 @@
+{
+  "name": "2019-open-data-report",
+  "version": "1.0.0",
+  "description": "NYC's 2019 Open Data Strategy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theReboot/2019-open-data-report.git"
+  },
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Parker",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "browser-sync": "^2.26.5",
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  }
+}

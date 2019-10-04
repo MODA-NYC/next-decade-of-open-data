@@ -1,0 +1,353 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/** VARIABLES **/
+
+// COLOR
+$blue: #07AEDA;
+$darkBlue: #253245;
+$offWhite: #F8F9F1;
+$grey: #595959;
+$darkBG1: #282c34;
+$darkBG2: #21252b;
+$lightYellow: #FEFFE5;
+$pillar1: #63CCEC;
+$pillar2: #BC96B3;
+$pillar3: #1C3259;
+
+// TYPE
+$sansSerif: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+// SIZES
+$gutter: 20px;
+$mobile-width: 600px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$extraLarge-width: 1600px;
+
+/** MIXINS **/
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin extraLarge {
+  @media (min-width: #{$extraLarge-width}) {
+    @content;
+  }
+}
+
+@mixin darkMode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+
+/** STYLES **/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  color: $grey;
+  font-family: $sansSerif;
+}
+
+// https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
+
+body:not(.user-is-tabbing) {
+ button,
+ input,
+ select,
+ summary,
+ textarea {
+   &:focus {
+     outline: none;
+   }
+ }
+}
+
+section {
+  min-height: 100px;
+  padding: calc(#{$gutter}*4) calc(#{$gutter}*2);
+
+  @include mobile {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+
+  &.section--hero {
+    background: url('../img/hero-bg.jpg') $blue no-repeat;
+    background-size: cover;
+    color: white;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+
+  &.section--framework {
+    background: $offWhite;
+
+    @include darkMode {
+      background: $darkBG1;
+      background: #21252b;
+      color: $offWhite;
+    }
+  }
+
+  &.section--text {
+    background: white;
+
+    @include darkMode {
+      background: $darkBG1;
+      color: $offWhite;
+    }
+  }
+}
+
+footer {
+  background: $darkBlue;
+  min-height: 100px;
+}
+
+h1 {
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+
+  .section--hero & {
+    color: $lightYellow;
+  }
+
+  @include tablet {
+    font-size: 80px;
+  }
+
+  @include mobile {
+    font-size: 80px;
+  }
+
+  .pillar & {
+    font-size: 54px;
+    letter-spacing: 0;
+    margin-bottom: 20px;
+  }
+}
+
+h2 {
+  font-size: 60px;
+  line-height: 1;
+  font-weight: 700;
+
+  @include darkMode {
+    color: $lightYellow;
+  }
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 22px;
+}
+
+.subtitle {
+  padding: 10px 0 0 0;
+  border-top: 2px solid #fff;
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.colWrap {
+  display: flex;
+
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.col {
+  flex: 1;
+  margin-right: $gutter;
+
+  @include mobile {
+    margin-bottom: $gutter;
+  }
+}
+
+.textWrap {
+  width: 50%;
+}
+
+.pillar--1 {
+  color: $pillar1;
+}
+
+.pillar--2 {
+  color: $pillar2;
+}
+
+.pillar--3 {
+  color: $pillar3;
+}
+
+.pillar {
+  min-height: 100vh;
+  width: 37.5%;
+  padding-bottom: 200px;
+
+  @include mobile {
+    width: 100%;
+    padding-bottom: 100px;
+    min-height: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0px;
+  }
+}
+
+.pillar > p {
+  color: $grey;
+
+  @include darkMode {
+    color: $offWhite;
+  }
+}
+
+.priorityWrap {
+  margin-top: 50px
+}
+
+.priority {
+  background: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: .2s all ease;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+
+  @include darkMode {
+    background: $offWhite;
+  }
+}
+
+summary {
+  cursor: pointer;
+  line-height: 1.2;
+  font-weight: 700;
+  font-size: 21px;
+  color: $grey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .priority[open] & {
+    border-bottom: 2px solid #dedede;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+
+  &::after {
+    content: '';
+    border: solid $grey;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 10px;
+    width: 10px;
+    height: 10px;
+    margin-left: 15px;
+    margin-right: 10px;
+    transform: rotate(45deg);
+    transition: .2s all ease;
+
+    .priority[open] & {
+      transform: rotate(-135deg);
+      margin-top: 10px;
+    }
+
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+details p {
+  font-size: 15px;
+  color: $grey;
+  opacity: .85;
+}
