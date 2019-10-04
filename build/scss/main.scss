@@ -119,6 +119,7 @@ img {
 body {
   color: $grey;
   font-family: $sansSerif;
+	background: $offWhite;
 }
 
 // https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
@@ -154,7 +155,6 @@ section {
   }
 
   &.section--framework {
-    background: $offWhite;
 
     @include darkMode {
       background: $darkBG2;
@@ -354,20 +354,29 @@ details p {
 .framework {
   width: 50%;
   max-height: 90vh;
-  position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 50%;
-  z-index: 0;
+  // margin-left: 50%;
+	transition: .3s all ease;
+	z-index: -1;
+	position: fixed;
+	top: 50%;
+	right: $gutter;
+	transform: translateY(-50%);
 
 	@include mobile {
 		display: none;
 	}
+
+	// &.framework--sticking {
+	// 	position: fixed;
+	// 	top: 50%;
+	// 	transform: translateY(-50%);
+	// 	// opacity: 1;
+	// }
 }
 
 .framework__pillar {
 	transition: .3s all ease;
-	opacity: .5;
+	// opacity: .5;
 }
 
 .pillar--active {

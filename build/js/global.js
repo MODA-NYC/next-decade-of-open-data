@@ -17,6 +17,14 @@ new ScrollMagic.Scene({ triggerElement: "#pillar--3" })
   // .addIndicators() // add indicators (requires plugin)
   .addTo(controller);
 
+// new ScrollMagic.Scene({
+//   triggerElement: ".section--framework",
+//   triggerHook: "onEnter"
+// })
+//   .setClassToggle(".framework", "framework--sticking") // add class toggle
+//   .addIndicators() // add indicators (requires plugin)
+//   .addTo(controller);
+
 
 // https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
 
