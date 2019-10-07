@@ -5,7 +5,7 @@ var controller = new ScrollMagic.Controller({
 });
 
 var controllerMobile = new ScrollMagic.Controller({
-  globalSceneOptions: { duration: "100%" }
+  // globalSceneOptions: { duration: "100%" }
 });
 
 // build scenes
@@ -51,15 +51,24 @@ frameworkNavButtons.forEach(function(x) {
 new ScrollMagic.Scene({ triggerElement: "#pillar--1" })
   .setClassToggle(".frameworkNav__button--experience", "frameworkNav__button--active")
   // .addIndicators() // add indicators (requires plugin)
+  .duration(function() {
+    return document.getElementById("pillar--1").offsetHeight;
+  })
   .addTo(controllerMobile);
 
 new ScrollMagic.Scene({ triggerElement: "#pillar--2" })
   .setClassToggle(".frameworkNav__button--capacity", "frameworkNav__button--active")
   // .addIndicators() // add indicators (requires plugin)
+  .duration(function() {
+    return document.getElementById("pillar--2").offsetHeight;
+  })
   .addTo(controllerMobile);
 new ScrollMagic.Scene({ triggerElement: "#pillar--3" })
   .setClassToggle(".frameworkNav__button--community", "frameworkNav__button--active")
   // .addIndicators() // add indicators (requires plugin)
+  .duration(function() {
+    return document.getElementById("pillar--3").offsetHeight;
+  })
   .addTo(controllerMobile);
 
 
