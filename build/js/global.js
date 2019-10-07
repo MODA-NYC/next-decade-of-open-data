@@ -39,8 +39,20 @@ const frameworkNavButtons = document.querySelectorAll('.frameworkNav__button');
 frameworkNavButtons.forEach(function(x) {
   x.addEventListener('click', function(e) {
     e.preventDefault();
-    console.log(e)
-    let link = e.target.hash;
+    // console.dir(x)
+
+    // get anchor link
+    let link = x.children[0].hash;
+    // console.log(link)
+
+    // find distance from top
+    let pos = document.querySelector(link).offsetTop;
+    console.log(pos);
+
+    // scroll to link
+    let offset = 80;
+    window.scroll({ top: (pos - offset), left: 0, behavior: 'smooth' });
+
   })
 })
 
