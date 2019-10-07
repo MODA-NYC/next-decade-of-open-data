@@ -1,6 +1,11 @@
 // init controller
 var controller = new ScrollMagic.Controller({
-  // globalSceneOptions: { duration: 300 }
+  // globalSceneOptions: { duration: "100%" }
+  // scene.duration("100%");
+});
+
+var controllerMobile = new ScrollMagic.Controller({
+  globalSceneOptions: { duration: "100%" }
 });
 
 // build scenes
@@ -20,21 +25,7 @@ new ScrollMagic.Scene({ triggerElement: "#pillar--3" })
 
 // mobile frameworkNav
 
-// build scenes
-new ScrollMagic.Scene({ triggerElement: "#pillar--1" })
-  .setClassToggle(".frameworkNav__button--experience", "frameworkNav__button--active")
-  // .addIndicators() // add indicators (requires plugin)
-  .addTo(controller);
-new ScrollMagic.Scene({ triggerElement: "#pillar--2" })
-  .setClassToggle(".frameworkNav__button--capacity", "frameworkNav__button--active")
-  // .addIndicators() // add indicators (requires plugin)
-  .addTo(controller);
-new ScrollMagic.Scene({ triggerElement: "#pillar--3" })
-  .setClassToggle(".frameworkNav__button--community", "frameworkNav__button--active")
-  // .addIndicators() // add indicators (requires plugin)
-  .addTo(controller);
-
-const frameworkNavButtons = document.querySelectorAll('.frameworkNav__button');
+var frameworkNavButtons = document.querySelectorAll('.frameworkNav__button');
 
 frameworkNavButtons.forEach(function(x) {
   x.addEventListener('click', function(e) {
@@ -55,6 +46,21 @@ frameworkNavButtons.forEach(function(x) {
 
   })
 })
+
+// build scenes
+new ScrollMagic.Scene({ triggerElement: "#pillar--1" })
+  .setClassToggle(".frameworkNav__button--experience", "frameworkNav__button--active")
+  // .addIndicators() // add indicators (requires plugin)
+  .addTo(controllerMobile);
+
+new ScrollMagic.Scene({ triggerElement: "#pillar--2" })
+  .setClassToggle(".frameworkNav__button--capacity", "frameworkNav__button--active")
+  // .addIndicators() // add indicators (requires plugin)
+  .addTo(controllerMobile);
+new ScrollMagic.Scene({ triggerElement: "#pillar--3" })
+  .setClassToggle(".frameworkNav__button--community", "frameworkNav__button--active")
+  // .addIndicators() // add indicators (requires plugin)
+  .addTo(controllerMobile);
 
 
 // https://hackernoon.com/removing-that-ugly-focus-ring-and-keeping-it-too-6c8727fefcd2
