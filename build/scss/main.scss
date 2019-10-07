@@ -53,6 +53,7 @@ table {
 $blue: #07AEDA;
 $darkBlue: #253245;
 $offWhite: #F8F9F1;
+$lightGrey: #DCDCDC;
 $grey: #595959;
 $darkBG1: #282c34;
 $darkBG2: #7b7c90;
@@ -151,12 +152,20 @@ section {
   }
 
   &.section--hero {
-    background: url('../img/hero-bg.jpg') $blue no-repeat;
-    background-size: cover;
-    color: white;
-    min-height: 80vh;
+    color: #fff;
+		background: url('../img/hero-bg.jpg') no-repeat center;
+		background-size: cover;
     display: flex;
     align-items: center;
+		min-height: 80vh;
+
+		@include mobile {
+			background-image: url('../img/hero-bg-mobile.jpg');
+			background-position: center bottom;
+			background-size: 100%;
+			background-color: $blue;
+			align-items: flex-start;
+		}
   }
 
   &.section--framework {
@@ -201,7 +210,7 @@ h1 {
   }
 
   @include mobile {
-    font-size: 80px;
+    font-size: 70px;
   }
 
   .pillar & {
@@ -261,6 +270,10 @@ strong {
 	width: 300px;
 	margin: 0 0 50px;
 
+	@include mobile {
+		width: 200px;
+	}
+
 	footer & {
 		width: 250px;
 		margin: 20px 0 0;
@@ -287,6 +300,14 @@ strong {
 
 .textWrap {
   width: 50%;
+
+	@include tablet {
+		width: 80%;
+	}
+
+	@include mobile {
+		width: 100%;
+	}
 }
 
 .pillar--1 {
@@ -350,7 +371,7 @@ summary {
   font-size: 21px;
   color: $grey;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 
   .priority[open] & {
@@ -358,6 +379,10 @@ summary {
     padding-bottom: 15px;
     margin-bottom: 25px;
   }
+
+	> h3 {
+		color: red;
+	}
 
   &::after {
     content: '';
@@ -367,6 +392,7 @@ summary {
     padding: 10px;
     width: 10px;
     height: 10px;
+		flex-basis: 10px;
     margin-left: 15px;
     margin-right: 10px;
     transform: rotate(45deg);
@@ -388,6 +414,69 @@ details p {
   font-size: 15px;
   color: $grey;
   opacity: .85;
+}
+
+.frameworkNav {
+	display: none;
+
+	@include mobile {
+		display: flex;
+		position: sticky; // using sticky because this view is targeted at smartphones
+		top: 20px;
+		margin-bottom: 60px;
+		width: 100%;
+		justify-content: space-between;
+		z-index: 2;
+	}
+}
+
+.frameworkNav__button {
+	background: $lightGrey;
+	flex: 1;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0;
+	transition: .2s all ease;
+	box-shadow: inset 0px 0px 1px rgba(0,0,0,.5);
+
+	&:first-of-type {
+		border-radius: 10px 0 0 10px;
+	}
+
+	&:last-of-type {
+		border-radius: 0 10px 10px 0;
+	}
+
+	a {
+		&:link,
+		&:active,
+		&:visited {
+			color: $grey;
+			text-decoration: none;
+		}
+	}
+}
+
+.frameworkNav__button--active {
+	a {
+		&:link,
+		&:active,
+		&:visited {
+			color: #fff;
+		}
+	}
+
+	&.frameworkNav__button--experience {
+		background: $pillar1;
+	}
+	&.frameworkNav__button--capacity {
+		background: $pillar2;
+	}
+	&.frameworkNav__button--community {
+		background: $pillar3;
+	}
 }
 
 .framework {
