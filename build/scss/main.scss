@@ -243,6 +243,19 @@ p {
   font-size: 20px;
   line-height: 1.4;
   margin-bottom: 22px;
+
+	a {
+		&:link,
+		&:active,
+		&:visited {
+			color: $blue;
+			text-decoration-skip: objects;
+
+			@include darkMode {
+				color: $lightYellow;
+			}
+		}
+	}
 }
 
 .subtitle {
@@ -424,7 +437,6 @@ summary {
       transform: rotate(-135deg);
       margin-top: 10px;
     }
-
   }
 
   &::-webkit-details-marker {

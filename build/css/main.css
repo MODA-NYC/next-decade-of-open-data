@@ -149,6 +149,12 @@ p {
   font-size: 20px;
   line-height: 1.4;
   margin-bottom: 22px; }
+  p a:link, p a:active, p a:visited {
+    color: #07AEDA;
+    text-decoration-skip: objects; }
+    @media (prefers-color-scheme: dark) {
+      p a:link, p a:active, p a:visited {
+        color: #FEFFE5; } }
 
 .subtitle {
   padding: 10px 0 0 0;
