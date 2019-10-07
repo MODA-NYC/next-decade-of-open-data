@@ -60,6 +60,10 @@ body {
   color: #595959;
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   background: #F8F9F1; }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #7b7c90;
+      color: #F8F9F1; } }
 
 body:not(.user-is-tabbing) button:focus,
 body:not(.user-is-tabbing) input:focus,
@@ -84,7 +88,6 @@ section {
     align-items: center; }
   @media (prefers-color-scheme: dark) {
     section.section--framework {
-      background: #7b7c90;
       color: #F8F9F1; } }
   section.section--text {
     background: white; }
