@@ -196,7 +196,7 @@ footer {
 }
 
 h1 {
-  font-size: 120px;
+  font-size: 110px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: -2px;
@@ -217,6 +217,10 @@ h1 {
     font-size: 54px;
     letter-spacing: 0;
     margin-bottom: 20px;
+
+		@include mobile {
+			font-size: 45px;
+		}
   }
 }
 
@@ -224,10 +228,15 @@ h2 {
   font-size: 60px;
   line-height: 1;
   font-weight: 700;
+	margin-bottom: 20px;
 
   @include darkMode {
     color: $lightYellow;
   }
+
+	@include mobile {
+		font-size: 48px;
+	}
 }
 
 p {
@@ -267,7 +276,7 @@ strong {
 }
 
 .logo {
-	width: 300px;
+	width: 250px;
 	margin: 0 0 50px;
 
 	@include mobile {
@@ -307,6 +316,19 @@ strong {
 
 	@include mobile {
 		width: 100%;
+	}
+}
+
+.workshopPhoto {
+	margin-bottom: calc(-1*(#{$gutter}*4)-2px); // this negates the section padding-bottom. Extra two pixels to create a clean bottom line
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(-1*(#{$gutter}*2)); // this negates the section padding left and right
+	margin-top: 60px;
+
+	@include mobile {
+		margin-top: 30px;
+		margin-left: calc(-1*#{$gutter}); // this negates the section padding left and right
 	}
 }
 
