@@ -411,12 +411,6 @@ summary {
 	  justify-content: space-between;
 		cursor: pointer;
 
-		.priority[open] & {
-	    border-bottom: 2px solid #dedede;
-	    padding-bottom: 15px;
-	    margin-bottom: 25px;
-	  }
-
 	  &::after {
 	    content: '';
 	    border: solid $grey;
@@ -429,11 +423,6 @@ summary {
 			margin: 0 10px 0 15px;
 	    transform: rotate(45deg);
 	    transition: .2s all ease;
-
-	    .priority[open] & {
-	      transform: rotate(-135deg);
-	      margin-top: 10px;
-	    }
 	  }
 	}
 
@@ -442,15 +431,14 @@ summary {
   }
 }
 
-summary::after {
-	.pillar--1 & {
-		border-color: $pillar1;
-	}
-	.pillar--2 & {
-		border-color: $pillar2;
-	}
-	.pillar--3 & {
-		border-color: $pillar3;
+.priority[open] summary > div {
+	border-bottom: 2px solid #dedede;
+	padding-bottom: 15px;
+	margin-bottom: 25px;
+
+	&::after {
+		transform: rotate(-135deg);
+		margin-top: 10px;
 	}
 }
 

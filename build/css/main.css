@@ -276,10 +276,6 @@ summary {
     align-items: flex-start;
     justify-content: space-between;
     cursor: pointer; }
-    .priority[open] summary > div {
-      border-bottom: 2px solid #dedede;
-      padding-bottom: 15px;
-      margin-bottom: 25px; }
     summary > div::after {
       content: '';
       border: solid #595959;
@@ -291,20 +287,16 @@ summary {
       margin: 0 10px 0 15px;
       transform: rotate(45deg);
       transition: .2s all ease; }
-      .priority[open] summary > div::after {
-        transform: rotate(-135deg);
-        margin-top: 10px; }
   summary::-webkit-details-marker {
     display: none; }
 
-.pillar--1 summary::after {
-  border-color: #63CCEC; }
-
-.pillar--2 summary::after {
-  border-color: #BC96B3; }
-
-.pillar--3 summary::after {
-  border-color: #1C3259; }
+.priority[open] summary > div {
+  border-bottom: 2px solid #dedede;
+  padding-bottom: 15px;
+  margin-bottom: 25px; }
+  .priority[open] summary > div::after {
+    transform: rotate(-135deg);
+    margin-top: 10px; }
 
 details p {
   font-size: 15px;
