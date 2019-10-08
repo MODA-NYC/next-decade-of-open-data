@@ -400,48 +400,58 @@ strong {
 }
 
 summary {
-  cursor: pointer;
   line-height: 1.2;
   font-weight: 700;
   font-size: 21px;
   color: $grey;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
 
-  .priority[open] & {
-    border-bottom: 2px solid #dedede;
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-  }
+	> div { // added a div to serve as the flex parent to address a safari bug preventing summary tags from doing so
+		display: flex;
+		align-items: flex-start;
+	  justify-content: space-between;
+		cursor: pointer;
 
-	> h3 {
-		color: red;
+		.priority[open] & {
+	    border-bottom: 2px solid #dedede;
+	    padding-bottom: 15px;
+	    margin-bottom: 25px;
+	  }
+
+	  &::after {
+	    content: '';
+	    border: solid $grey;
+	    border-width: 0 5px 5px 0;
+	    // display: inline-block;
+	    padding: 10px;
+	    width: 10px;
+	    height: 10px;
+			flex-basis: 10px;
+			margin: 0 10px 0 15px;
+	    transform: rotate(45deg);
+	    transition: .2s all ease;
+
+	    .priority[open] & {
+	      transform: rotate(-135deg);
+	      margin-top: 10px;
+	    }
+	  }
 	}
-
-  &::after {
-    content: '';
-    border: solid $grey;
-    border-width: 0 5px 5px 0;
-    display: inline-block;
-    padding: 10px;
-    width: 10px;
-    height: 10px;
-		flex-basis: 10px;
-    margin-left: 15px;
-    margin-right: 10px;
-    transform: rotate(45deg);
-    transition: .2s all ease;
-
-    .priority[open] & {
-      transform: rotate(-135deg);
-      margin-top: 10px;
-    }
-  }
 
   &::-webkit-details-marker {
     display: none;
   }
+}
+
+summary::after {
+	.pillar--1 & {
+		border-color: $pillar1;
+	}
+	.pillar--2 & {
+		border-color: $pillar2;
+	}
+	.pillar--3 & {
+		border-color: $pillar3;
+	}
 }
 
 details p {
