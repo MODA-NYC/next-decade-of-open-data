@@ -33,15 +33,15 @@ frameworkNavButtons.forEach(function(x) {
     // console.dir(x)
 
     // get anchor link
-    let link = x.children[0].hash;
+    var link = x.children[0].hash;
     // console.log(link)
 
     // find distance from top
-    let pos = document.querySelector(link).offsetTop;
+    var pos = document.querySelector(link).offsetTop;
     console.log(pos);
 
     // scroll to link
-    let offset = 80;
+    var offset = 80;
     window.scroll({ top: (pos - offset), left: 0, behavior: 'smooth' });
 
   })
