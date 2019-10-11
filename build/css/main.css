@@ -176,7 +176,7 @@ strong {
   text-decoration: none;
   transition: .2s all ease;
   color: #595959;
-  margin-bottom: 20px; }
+  margin: 0 20px 20px; }
   .button:hover {
     background: #07AEDA;
     color: #FEFFE5; }
